@@ -1,15 +1,14 @@
 "
-i'm a simple counter which supports incrementing and decrementing of a value
-
-my API is
--increment decrement 
--count 
+Counter is a simple concrete class which supports incrementing and
+decrementing a counter.
+Its API is
+- decrement, increment
+- count
 
 |c|
-c:= Counter new.
-C increment;increment 
+c := Counter new 
+c increment increment.
 c count = 2
-
 "
 Class {
 	#name : #Counter,
@@ -21,46 +20,39 @@ Class {
 }
 
 { #category : #'instance creation' }
-Counter class >> withValue:  aNumber [
+Counter class >> withValue: aNumber [
 
-	| c |
-	c := self new.
-	c count: aNumber.
-	^ c
+| c |
+c := self new.
+c count: aNumber.
+^ c
 ]
 
-{ #category : #acccessing }
-Counter >> count [
+{ #category : #Accessing }
+Counter >> count [ 
 	^ count
 ]
 
-{ #category : #acccessing }
+{ #category : #Accessing }
 Counter >> count: aNumber [
-	count:= aNumber
+	 count := aNumber
 ]
 
-{ #category : #operations }
+{ #category : #operatoins }
 Counter >> decrement [ 
-	self count: self count - 1
+
+self count:  self count - 1
 ]
 
-{ #category : #operations }
+{ #category : #operatoins }
 Counter >> increment [ 
-	self count: self count + 1
+
+self count:  self count + 1
 ]
 
 { #category : #initialization }
-Counter >> initialize [ 
+Counter >> initialize [
 
-	super initialize.
-	count:=0 
-]
-
-{ #category : #printing }
-Counter >> printOn: aStream [
-
-	super printOn: aStream.
-	aStream nextPutAll: ' with value: ', self count 
-printString.
-	aStream cr
+	super initialize. 
+	count := 0
 ]
