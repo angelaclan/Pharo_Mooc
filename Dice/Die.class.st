@@ -1,8 +1,8 @@
 "
-I am a simple die
+I am simple dice
 
-To create a Die use
-Die faces: 20 
+To create a die use 
+Die faces: 20
 "
 Class {
 	#name : #Die,
@@ -16,34 +16,30 @@ Class {
 { #category : #'instance creation' }
 Die class >> faces: anInterger [
 
-	| d |
-	"object is able to be instanced by class Die so it makes sense we installe it on class side"
-	d := Die new.
-	"Use the setter from instance side to define the faces a dice can have"
-	d faces: anInterger.
-	^ d
+| d |
+d := Die new.
+d faces: anInterger.
+^d
 ]
 
-{ #category : #accesing }
+{ #category : #accessing }
 Die >> faces [
-	^ faces
+ ^ faces
 ]
 
-{ #category : #accesing }
-Die >> faces: anInteger [
- faces := anInteger
+{ #category : #accessing }
+Die >> faces: anInterger [
+	faces:= anInterger.
 ]
 
-{ #category : #initalize }
+{ #category : #initialization }
 Die >> initialize [ 
 
 	super initialize.
 	faces := 6
-	
 ]
 
-{ #category : #operatoins }
+{ #category : #operation }
 Die >> roll [
-	
-	^ faces atRandom
+^ faces atRandom
 ]
