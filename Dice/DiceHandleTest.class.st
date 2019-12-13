@@ -11,7 +11,7 @@ DiceHandleTest >> testAdding [
 
 h := DiceHandle new
 addDie: (Die faces: 6);
-addDie: (Die faces: 1); 
+addDie: (Die faces: 10); 
 yourself.
 self assert: h diceNumber equals: 2
 ]
@@ -26,4 +26,29 @@ addDie: (Die faces: 6);
 addDie: (Die faces: 6); 
 yourself.
 self assert: h diceNumber equals: 2
+]
+
+{ #category : #tests }
+DiceHandleTest >> testMaxValue [
+
+ | h |
+
+h := DiceHandle new
+addDie: (Die faces: 6);
+addDie: (Die faces: 10); 
+yourself.
+self assert: h maxValue equals: 16
+]
+
+{ #category : #tests }
+DiceHandleTest >> testRoll [
+
+ | h |
+
+h := DiceHandle new
+addDie: (Die faces: 6);
+addDie: (Die faces: 10); 
+yourself.
+1000 timesRepeat: [ 
+self assert: (h roll between: 2 and: h maxValue)]
 ]
