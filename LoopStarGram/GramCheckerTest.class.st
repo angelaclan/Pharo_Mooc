@@ -30,10 +30,17 @@ GramCheckerTest >> testAllIsogramsSetImplementation [
 ]
 
 { #category : #tests }
+GramCheckerTest >> testDetectAllMissingLetter [
+
+self assert: ('The quick brown fox jumps over the lzy do' detectAllMissingLetterFor: 'abcdefghijklmnopqrstuvwxyz') equals: #($a $g) asSet.
+self assert: ('les pou papas e les pou pas papas' detectAllMissingLetterFor: 'apouxetl') equals: (Set withAll: #($x $t)).
+]
+
+{ #category : #tests }
 GramCheckerTest >> testDetectFirstMissingLetter [
 
-self assert: ('The quick brown fox jumps over the lay dog' DetectFirstMissingLetterFor: 'abcdefghijklmnopqrstuvwxyz') equals: $z.
-self assert: ('les pou papas et les pou pas papas' DetectFirstMissingLetterFor: 'apouxetl') equals: $x.
+self assert: ('The quick brown fox jumps over the lzy dog' detectFirstMissingLetterFor: 'abcdefghijklmnopqrstuvwxyz') equals: $a.
+self assert: ('les pou papas et les pou pas papas' detectFirstMissingLetterFor: 'apouxetl') equals: $x.
 ]
 
 { #category : #tests }
