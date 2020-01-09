@@ -28,5 +28,8 @@ Wallet >> initialize [
 
 { #category : #accessing }
 Wallet >> money [
-	^ 0
+	| money |
+	money := 0.
+	bagCoins doWithOccurrences: [ :aValue :aQuantity | money := money + (aValue * aQuantity) ].
+	^ money.
 ]
