@@ -38,22 +38,30 @@ TemperatureConverterTest >> testLocationAndDate [
 	office measureCelsius: 19.
 	office measureCelsius: 20.
 	
-self assert: office measureCount = 2.
+self assert: office measureCount equals: 2.
 self assert: office dates equals: { Date today . Date today } asOrderedCollection.
-self assert: office temperatures equals: { 19 . 20 }
+self assert: office temperatures equals: { 19 . 20 } asOrderedCollection.
+
+
 ]
 
 { #category : #tests }
 TemperatureConverterTest >> testLocationAndDateWithConversion [
-
 	| converter |
 	converter := TemperatureConverter new location: 'Lille'.
 	converter measureFahrenheit: 86.
-   converter measureFahrenheit: 50.
-	
-self assert: converter measureCount = 2.
-self assert: converter dates equals: { Date today . Date today } asOrderedCollection.
-self assert: converter temparatures equals: { converter convertFahrenheit: 86 .converter convertFahrenheit: 50 } asOrderedCollection .
+	converter measureFahrenheit: 50.
+	self assert: converter measureCount equals: 2.
+	self
+		assert: converter dates
+		equals:
+			{Date today.
+			Date today} asOrderedCollection.
+	self
+		assert: converter temperatures
+		equals:
+			{(converter convertFahrenheit: 86).
+			(converter convertFahrenheit: 50)} asOrderedCollection
 ]
 
 { #category : #tests }
@@ -70,6 +78,6 @@ TemperatureConverterTest >> testTwoLocations [
 	home measureFahrenheit: 22.
 	home measureFahrenheit: 22.
 	home measureFahrenheit: 22.
-	self assert: office location equals: 'home'.
-	self assert: office measureCount equals: 3.
+	self assert: home location equals: 'home'.
+	self assert: home measureCount equals: 3.
 ]

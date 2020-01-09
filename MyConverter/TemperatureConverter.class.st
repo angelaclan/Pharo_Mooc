@@ -61,24 +61,21 @@ TemperatureConverter >> measureCelsius:  aTemp [
 
 { #category : #accessing }
 TemperatureConverter >> measureCount [
-	^ measureCount
+	^ measures size
 	
 ]
 
 { #category : #accessing }
-TemperatureConverter >> measureCount: aNumber [
-
-	measureCount := aNumber
-]
-
-{ #category : #accessing }
 TemperatureConverter >> measureFahrenheit:  aTemp [
+   
 
-	measures add: DateAndTime now -> aTemp
+	measures add: DateAndTime now -> ((aTemp - 32)/1.8).
+	
+
 ]
 
 { #category : #accessing }
-TemperatureConverter >> temparatures [
+TemperatureConverter >> temperatures [
 	^ measures collect: [ :each | each value ]
 ]
 
