@@ -1,7 +1,7 @@
 Class {
 	#name : #TCMessageQueueTest,
 	#superclass : #TestCase,
-	#category : #'TinyChat-server'
+	#category : #'TinyChat-Server'
 }
 
 { #category : #tests }
@@ -16,7 +16,7 @@ tcmsg
 	add: 'pablo>Lets Go!';
 	add: 'guille>wait for me'.
 
-self assert: (tcmsg formattedMessagesFrom: 2) equals: 'pablo>Lets Go!','guille>wait for me'
+self assert: (tcmsg formattedMessagesFrom: 2) equals: '''pablo>Lets Go!''''guille>wait for me'''
 ]
 
 { #category : #tests }

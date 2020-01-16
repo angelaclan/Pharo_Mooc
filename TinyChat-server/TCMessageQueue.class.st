@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'messages'
 	],
-	#category : #'TinyChat-server'
+	#category : #'TinyChat-Server'
 }
 
 { #category : #accessing }
