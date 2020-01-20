@@ -46,6 +46,12 @@ TCServer >> initializePort: anInteger [
 
 ]
 
+{ #category : #testing }
+TCServer >> isRunning [
+	
+	^ teapotServer isRunning
+]
+
 { #category : #adding }
 TCServer >> messageCount [
 	^ messagesQueue size
@@ -56,13 +62,13 @@ TCServer >> messagesFrom: request [
 	^ messagesQueue formattedMessagesFrom: (request at: #id)
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #private }
 TCServer >> registerErrorHandlers [
 	teapotServer
 		exception: KeyNotFound -> (TeaResponse notFound body: 'No such message')
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #private }
 TCServer >> registerRoutes [
 	teapotServer
 		GET: '/messages/count' -> (Send message: #messageCount to: self);

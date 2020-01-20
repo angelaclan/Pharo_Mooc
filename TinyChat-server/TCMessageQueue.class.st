@@ -33,6 +33,12 @@ TCMessageQueue >> listFrom: anIndex [
 		ifFalse: [ #() ]
 ]
 
+{ #category : #resettin }
+TCMessageQueue >> reset [
+	
+	messages removeAll
+]
+
 { #category : #accessing }
 TCMessageQueue >> rest [
 	messages removeAll
