@@ -8,13 +8,47 @@ Class {
 }
 
 { #category : #operation }
-ChainedList >> add: aNumber [
+ChainedList >> addFirst: aNumber [
 	| addedNode |
 	addedNode := Node new.
 	addedNode value: aNumber.
 	addedNode next: head.
 	self head: addedNode.
 	"^ addedNode"
+]
+
+{ #category : #operation }
+ChainedList >> addLast: aNumber [
+	| lastNode newNode |
+	newNode := Node new.
+	newNode value: aNumber.
+	head isNil
+		ifTrue: [ self addFirst: aNumber ]
+		ifFalse: [ lastNode := self findLast.
+			lastNode next: newNode ]
+]
+
+{ #category : #operation }
+ChainedList >> find: aValue [
+	| aNode foundNode |
+	foundNode := nil.
+	aNode := head.
+	[ foundNode isNil and: [ aNode isNotNil ] ]
+		whileTrue: [ ( aNode value = aValue )
+				ifTrue: [ foundNode := aNode   ]
+				ifFalse: [ aNode := aNode next ] ].
+	^ foundNode
+]
+
+{ #category : #operation }
+ChainedList >> findLast [
+	| aNode |
+	aNode := head.
+	[ aNode isNotNil ]
+		whileTrue: [ aNode isLast
+				ifTrue: [ ^ aNode ]
+				ifFalse: [ aNode := aNode next ] ].
+
 ]
 
 { #category : #accessing }
@@ -34,7 +68,7 @@ ChainedList >> initialize [
 ]
 
 { #category : #operation }
-ChainedList >> remove [
+ChainedList >> removeFirst [
 	| aNode |
 	aNode := head next.
 	self head: aNode

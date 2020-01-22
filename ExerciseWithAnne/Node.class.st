@@ -9,6 +9,12 @@ Class {
 }
 
 { #category : #testing }
+Node >> isLast [
+
+	^ next isNil.
+]
+
+{ #category : #testing }
 Node >> isNode [
 	^ true
 ]
