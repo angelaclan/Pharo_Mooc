@@ -7,6 +7,18 @@ Class {
 	#category : #ExerciseWithAnne
 }
 
+{ #category : #operation }
+ChainedList >> addByOrder: aNumber [
+	| aNode |
+	aNode := Node new.
+	aNode value: aNumber.
+	head isNil
+		ifTrue: [ self addFirst: aNumber ]
+		ifFalse: [ aNode value > head value
+				ifTrue: [self addLast: aNumber ]
+				ifFalse: [ self addFirst: aNumber ] ]
+]
+
 { #category : #adding }
 ChainedList >> addFirst: aNumber [
 	| addedNode |
@@ -52,6 +64,33 @@ ChainedList >> findLast [
 
 ]
 
+{ #category : #operation }
+ChainedList >> findPrevious [
+	| aNode previousNode |
+	aNode := head.
+	previousNode := nil.
+	[ aNode isNotNil ]
+		whileTrue: [ aNode next isNotNil
+				ifTrue: [ previousNode := aNode.
+					aNode := aNode next ]
+				ifFalse: [ aNode isLast
+						ifTrue: [ previousNode isSecondLast ]
+						ifFalse: [ ^ previousNode ] ] ]
+]
+
+{ #category : #operation }
+ChainedList >> findSecondLast [
+	| aNode secondLast |
+	aNode := head.
+	secondLast := nil.
+	[ aNode isNotNil ]
+		whileTrue: [ aNode isLast 
+				ifTrue: [ ^ secondLast ]
+				ifFalse: [ secondLast := aNode.
+					aNode := aNode next ] ].
+
+]
+
 { #category : #accessing }
 ChainedList >> head [
 	^ head
@@ -69,10 +108,28 @@ ChainedList >> initialize [
 ]
 
 { #category : #removing }
+ChainedList >> removeByValue: aNumber [
+	| removedNode previousNode nextNode|
+	removedNode := self find: aNumber.
+	previousNode := self findPrevious.
+	nextNode := removedNode next.
+	previousNode next: nextNode 
+]
+
+{ #category : #removing }
 ChainedList >> removeFirst [
 	| aNode |
 	aNode := head next.
 	self head: aNode
+]
+
+{ #category : #removing }
+ChainedList >> removeLast [
+	| secondLast  |
+	(self size < 2) ifTrue: [ self head: nil ]  
+	ifFalse:
+	[secondLast := self findSecondLast.
+	secondLast next: nil]
 ]
 
 { #category : #accessing }

@@ -19,6 +19,12 @@ Node >> isNode [
 	^ true
 ]
 
+{ #category : #testing }
+Node >> isSecondLast [
+
+	^ next isLast.
+]
+
 { #category : #accessing }
 Node >> next [
 	^ next
