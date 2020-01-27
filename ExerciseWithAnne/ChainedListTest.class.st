@@ -109,7 +109,8 @@ ChainedListTest >> testIfFirstNodeIsRemoved [
 ChainedListTest >> testRemoveNode [
 	cl addFirst: 4.
 	cl addFirst: 5.
+   cl addFirst: 6.
 	cl removeFirst. 
-	self assert: cl size equals: 1.
-	self assert: cl head value equals: 4.
+	self assert: cl size equals: 2.
+	self assert: cl head value equals: 5.
 ]

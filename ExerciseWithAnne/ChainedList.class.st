@@ -7,7 +7,7 @@ Class {
 	#category : #ExerciseWithAnne
 }
 
-{ #category : #operation }
+{ #category : #adding }
 ChainedList >> addFirst: aNumber [
 	| addedNode |
 	addedNode := Node new.
@@ -17,12 +17,13 @@ ChainedList >> addFirst: aNumber [
 	"^ addedNode"
 ]
 
-{ #category : #operation }
+{ #category : #adding }
 ChainedList >> addLast: aNumber [
 	| lastNode newNode |
 	newNode := Node new.
 	newNode value: aNumber.
-	head isNil
+	
+	head isNil 
 		ifTrue: [ self addFirst: aNumber ]
 		ifFalse: [ lastNode := self findLast.
 			lastNode next: newNode ]
@@ -67,7 +68,7 @@ ChainedList >> initialize [
 	head := nil.
 ]
 
-{ #category : #operation }
+{ #category : #removing }
 ChainedList >> removeFirst [
 	| aNode |
 	aNode := head next.
