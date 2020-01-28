@@ -113,6 +113,32 @@ ChainedListTest >> testIfFirstNodeIsRemoved [
 ]
 
 { #category : #tests }
+ChainedListTest >> testPrinting [
+	cl := ChainedList new.
+	cl addLast: 1.
+	cl addLast: 2.
+	cl addLast: 3.
+	cl addLast: 4.
+	cl addLast: 5.
+	cl addLast: 6.
+
+	cl printOnTranscript
+]
+
+{ #category : #tests }
+ChainedListTest >> testPrintingEvenValue [
+	cl := ChainedList new.
+	cl addLast: 1.
+	cl addLast: 2.
+	cl addLast: 3.
+	cl addLast: 4.
+	cl addLast: 5.
+	cl addLast: 6.
+	self halt.
+	cl printPairOnTranscript
+]
+
+{ #category : #tests }
 ChainedListTest >> testRemoveDirectlyByValue [
 	cl addLast: 9.
 	cl addLast: 8.

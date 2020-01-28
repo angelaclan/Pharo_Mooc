@@ -34,9 +34,8 @@ ChainedList >> addLast: aNumber [
 	| lastNode newNode |
 	newNode := Node new.
 	newNode value: aNumber.
-	
-	head isNil 
-		ifTrue: [ self addFirst: aNumber ]
+	head isNil
+		ifTrue: [ head := newNode ]
 		ifFalse: [ lastNode := self findLast.
 			lastNode next: newNode ]
 ]
@@ -105,6 +104,27 @@ ChainedList >> head: aNode [
 ChainedList >> initialize [
 	super initialize.
 	head := nil.
+]
+
+{ #category : #printing }
+ChainedList >> printOnTranscript [
+	| aNode |
+	aNode := head.
+	[ aNode isNotNil ]
+		whileTrue: [ aNode value traceCr.
+			aNode := aNode next ]
+]
+
+{ #category : #printing }
+ChainedList >> printPairOnTranscript [
+	| aNode |
+	aNode := head.
+	[ aNode isNotNil ]
+		whileTrue: [ aNode isEven
+				ifTrue: [ aNode value traceCr ].
+							aNode := aNode next				
+				].
+
 ]
 
 { #category : #removing }

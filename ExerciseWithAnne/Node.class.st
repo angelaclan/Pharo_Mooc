@@ -9,6 +9,13 @@ Class {
 }
 
 { #category : #testing }
+Node >> isEven [
+	  ^ self value \\ 2 = 0
+	
+	
+]
+
+{ #category : #testing }
 Node >> isLast [
 
 	^ self next isNil.
