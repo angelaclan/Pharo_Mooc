@@ -65,17 +65,17 @@ ChainedList >> findLast [
 ]
 
 { #category : #operation }
-ChainedList >> findPrevious [
+ChainedList >> findPreviousFrom: nodeToRemove [
 	| aNode previousNode |
 	aNode := head.
 	previousNode := nil.
 	[ aNode isNotNil ]
-		whileTrue: [ aNode next isNotNil
-				ifTrue: [ previousNode := aNode.
-					aNode := aNode next ]
-				ifFalse: [ aNode isLast
-						ifTrue: [ previousNode isSecondLast ]
-						ifFalse: [ ^ previousNode ] ] ]
+		whileTrue: [ aNode next isNotNil 
+			ifTrue: [ previousNode := aNode.
+				aNode := nodeToRemove] 
+			ifFalse: [ ^ previousNode 	] ]
+			
+		
 ]
 
 { #category : #operation }
@@ -111,7 +111,7 @@ ChainedList >> initialize [
 ChainedList >> removeByValue: aNumber [
 	| removedNode previousNode nextNode|
 	removedNode := self find: aNumber.
-	previousNode := self findPrevious.
+	previousNode := self findPreviousFrom: removedNode.
 	nextNode := removedNode next.
 	previousNode next: nextNode 
 ]

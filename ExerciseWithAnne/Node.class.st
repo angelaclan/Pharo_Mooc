@@ -11,7 +11,7 @@ Class {
 { #category : #testing }
 Node >> isLast [
 
-	^ next isNil.
+	^ self next isNil.
 ]
 
 { #category : #testing }
@@ -22,7 +22,7 @@ Node >> isNode [
 { #category : #testing }
 Node >> isSecondLast [
 
-	^ next isLast.
+	^ self next isLast.
 ]
 
 { #category : #accessing }

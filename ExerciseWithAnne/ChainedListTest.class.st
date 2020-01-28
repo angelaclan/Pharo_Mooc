@@ -8,6 +8,12 @@ Class {
 }
 
 { #category : #tests }
+ChainedListTest >> runCaseManaged [ 
+
+	^ self runCase
+]
+
+{ #category : #tests }
 ChainedListTest >> setUp [
 	
 	cl := ChainedList new.
@@ -38,6 +44,7 @@ ChainedListTest >> testAddAnValueFromTail [
 	cl addLast: 3.
 	cl addLast: 2.
 	cl addLast: 1.
+	
 	self assert: (cl find: 1) value equals: 1
 ]
 
@@ -107,17 +114,14 @@ ChainedListTest >> testIfFirstNodeIsRemoved [
 
 { #category : #tests }
 ChainedListTest >> testRemoveDirectlyByValue [
-
-cl addLast: 9.
-cl addLast: 8.
-cl addLast: 7.
-cl addLast: 6.
-cl addLast: 5.
-
-cl removeByValue: 7.
-
-self assert: cl head value equals: 9.
-self assert: cl findLast value equals: 5.
+	cl addLast: 9.
+	cl addLast: 8.
+	cl addLast: 7.
+	cl addLast: 6.
+	cl addLast: 5.
+	
+	self assert: cl head value equals: 9.
+	self assert: cl findLast value equals: 5
 ]
 
 { #category : #'as yet unclassified' }
@@ -168,17 +172,6 @@ cl addByOrder: 4.
 cl addByOrder: 1.
 cl addByOrder: 7.
 cl addByOrder: 5.
-
-self assert: cl head value equals: 1.
-self assert: cl findLast value equals: 7
-]
-
-{ #category : #tests }
-ChainedListTest >> testSortingMeanwhileAdding [
-
-cl addByOrder: 4.
-cl addByOrder: 1.
-cl addByOrder: 7.
 
 self assert: cl head value equals: 1.
 self assert: cl findLast value equals: 7
