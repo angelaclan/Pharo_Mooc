@@ -3,7 +3,8 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'name',
-		'price'
+		'price',
+		'weight'
 	],
 	#category : #ExerciseWithPablo
 }
@@ -32,4 +33,14 @@ Product >> price [
 { #category : #initialize }
 Product >> price: aNumber [
 	price := aNumber
+]
+
+{ #category : #accessing }
+Product >> weight [
+	^ weight
+]
+
+{ #category : #accessing }
+Product >> weight: aNumber [
+	weight := aNumber
 ]
