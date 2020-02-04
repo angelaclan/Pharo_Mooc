@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'aBasket'
 	],
-	#category : #ExerciseWithPablo
+	#category : #'ExerciseWithPablo-Basket'
 }
 
 { #category : #tests }

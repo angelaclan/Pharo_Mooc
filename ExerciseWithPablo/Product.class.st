@@ -4,10 +4,21 @@ Class {
 	#instVars : [
 		'name',
 		'price',
-		'weight'
+		'weight',
+		'image'
 	],
-	#category : #ExerciseWithPablo
+	#category : #'ExerciseWithPablo-Basket'
 }
+
+{ #category : #accessing }
+Product >> image [
+	^ image
+]
+
+{ #category : #accessing }
+Product >> image: aLink [
+	image := aLink
+]
 
 { #category : #initialize }
 Product >> initialize [ 
@@ -15,22 +26,22 @@ super initialize
 
 ]
 
-{ #category : #initialize }
+{ #category : #accessing }
 Product >> name [
 	^ name
 ]
 
-{ #category : #initialize }
+{ #category : #accessing }
 Product >> name: aName [
 	name := aName
 ]
 
-{ #category : #initialize }
+{ #category : #accessing }
 Product >> price [
 	^ price
 ]
 
-{ #category : #initialize }
+{ #category : #accessing }
 Product >> price: aNumber [
 	price := aNumber
 ]

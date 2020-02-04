@@ -7,7 +7,7 @@ Class {
 		'extraDeliveryPrice',
 		'deliveryPricePerKgOver10kg'
 	],
-	#category : #ExerciseWithPablo
+	#category : #'ExerciseWithPablo-Basket'
 }
 
 { #category : #adding }
