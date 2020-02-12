@@ -11,7 +11,7 @@ Class {
 }
 
 { #category : #adding }
-Basket >> addProduct: aProduct [
+Basket >> addArticle: aProduct [
 	products add: aProduct
 ]
 

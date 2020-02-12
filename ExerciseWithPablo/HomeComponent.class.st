@@ -57,7 +57,7 @@ HomeComponent >> renderSection: theShop with: html [
 
 html div class: 'col-md-4'.
 html div class: 'col-md-8';
-		with: [ theShop products
+		with: [ theShop articles
 				do: [ :e | 
 					html
 						div: [ html image

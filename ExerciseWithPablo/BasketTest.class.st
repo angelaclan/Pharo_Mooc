@@ -20,7 +20,7 @@ BasketTest >> testAddOneProductToBasket [
 	aProduct name: 'yoyo-red'.
 	aProduct price: 10.
 	aProduct weight: 20.
-	aBasket addProduct: aProduct.
+	aBasket addArticle: aProduct.
 	self assert: aBasket subTotal equals: 10
 ]
 
@@ -31,7 +31,7 @@ BasketTest >> testAddOneProductWithDelivery [
 	aProduct name: 'yoyo-red'.
 	aProduct price: 10.
 	aProduct weight: 2.
-	aBasket addProduct: aProduct.
+	aBasket addArticle: aProduct.
 	self assert: aBasket total equals: 12
 ]
 
@@ -47,8 +47,8 @@ BasketTest >> testAddTwoProductToBasket [
 		price: 10;
 		weight: 10.
 		
-	aBasket addProduct: aProduct.
-	aBasket addProduct: bProduct.
+	aBasket addArticle: aProduct.
+	aBasket addArticle: bProduct.
 	self assert: aBasket subTotal equals: 20
 ]
 
@@ -63,8 +63,8 @@ BasketTest >> testAddTwoProductWithDelivery [
 	price: 20;
 	weight: 3.
 	
-	aBasket addProduct: aProduct.
-	aBasket addProduct: bProduct.
+	aBasket addArticle: aProduct.
+	aBasket addArticle: bProduct.
 	self assert: aBasket total equals: 37
 ]
 
@@ -86,8 +86,8 @@ BasketTest >> testRemoveWithOneProductLeftInBasket [
 		price: 20;
 		weight: 3.
 	aBasket
-		addProduct: aProduct;
-		addProduct: bProduct.
+		addArticle: aProduct;
+		addArticle: bProduct.
 	aBasket removeProduct: aProduct.
 	
 	self assert: aBasket subTotal equals: 20.
@@ -111,9 +111,9 @@ BasketTest >> testRemoveWithTwoProductLeftInBasket [
 		weight: 2.	
 		
 	aBasket
-		addProduct: aProduct;
-		addProduct: bProduct;
-		addProduct: cProduct.
+		addArticle: aProduct;
+		addArticle: bProduct;
+		addArticle: cProduct.
 	aBasket removeProduct: aProduct.
 	
 	self assert: aBasket subTotal equals: 30.
