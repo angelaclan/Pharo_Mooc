@@ -48,9 +48,8 @@ TD1 class >> perfectNumber: aNumber [
 	sumD := 0.
 	(1 to: (aNumber-1)) do: [ :i | aNumber \\ i = 0
 				ifTrue: [ sumD := sumD + i ] ].
-	sumD = aNumber 
-		ifTrue: [ ^ true ]
-		ifFalse: [ ^ false ]
+	^ sumD = aNumber 
+	
 ]
 
 { #category : #'as yet unclassified' }
