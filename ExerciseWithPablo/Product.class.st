@@ -1,13 +1,7 @@
 Class {
 	#name : #Product,
 	#superclass : #Object,
-	#instVars : [
-		'name',
-		'price',
-		'weight',
-		'image'
-	],
-	#category : #'ExerciseWithPablo-Basket'
+	#category : #ExerciseWithPablo
 }
 
 { #category : #accessing }
